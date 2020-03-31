@@ -449,5 +449,9 @@ export LANG=en_US.UTF-8
 alias l='$(whence -p lsd) -lAFh $@'
 # alias python='$(whence -p python3) $@'
 alias vi='nvim'
+export PATH="$PATH:/Users/iso/Development/flutter/bin"
+export GOPATH="$GOPATH:/Users/iso/go"
+export GH_TOKEN=""
+echo "GH ACCESS TOKEN MISSING - FIXME!!!"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export RANGER_LOAD_DEFAULT_RC=FALSE
