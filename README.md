@@ -10,6 +10,16 @@ For `zsh` you need to install [Oh My Zsh](https://ohmyz.sh)
 
 If you want to use `ranger` with `vim`, you need to install it using your favorite package manager.
 
+## Screenshots
+
+**neovim**
+
+![neovim](neovim.png)
+
+**zsh**
+
+![zsh](zsh.png)
+
 ## Requirements
 
 You should install
@@ -17,6 +27,7 @@ You should install
 - ranger
 - msgpack
 - neovim
+- lsd
 - ag (silver-search)
 - your favorite language parsers (dart, swift, rust, jslint,...)
 
