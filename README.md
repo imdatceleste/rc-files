@@ -33,8 +33,7 @@ You should install
 
 ## For vim & neovim
 
-You need to install `vim-plug` [vim-plug](https://github.com/junegunn/vim-plug), before you can install the plugins here. After
-installing `vim-plug`, start up your vim/neovim and enter `:PlugInstall`.
+You need to install [vim-plug](https://github.com/junegunn/vim-plug), before you can install the plugins here. After installing `vim-plug`, start up your vim/neovim and enter `:PlugInstall`.
 
 If all the pre-requisites were ok, you will have a nice vim/neovim-setup.
 
