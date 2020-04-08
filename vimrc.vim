@@ -501,7 +501,10 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_math=1
 " Highlight YAML frontmatter
 let g:vim_markdown_frontmatter=1
-
+" Switch off concealing
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+set cole=0
 " ----------------------------------------------------------------------------
 " VIM Instant Markdown (Markdown-Previewer)
 " ----------------------------------------------------------------------------
@@ -616,16 +619,16 @@ imap <M-Down> <ESC><c-w>j
 " ----------------------------------------------------------------------------
 " Bookmarks
 " ----------------------------------------------------------------------------
-nmap bt <Plug>BookmarkToggle
-nmap ba <Plug>BookmarkAnnotate
-nmap bs <Plug>BookmarkShowAll
-nmap bj <Plug>BookmarkNext
-nmap bk <Plug>BookmarkPrev
-nmap bc <Plug>BookmarkClear
-nmap bx <Plug>BookmarkClearAll
-nmap bK <Plug>BookmarkMoveUp
-nmap bJ <Plug>BookmarkMoveDown
-nmap bg <Plug>BookmarkMoveToLine
+nmap Bt <Plug>BookmarkToggle
+nmap Ba <Plug>BookmarkAnnotate
+nmap Bs <Plug>BookmarkShowAll
+nmap Bj <Plug>BookmarkNext
+nmap Bk <Plug>BookmarkPrev
+nmap Bc <Plug>BookmarkClear
+nmap Bx <Plug>BookmarkClearAll
+nmap BK <Plug>BookmarkMoveUp
+nmap BJ <Plug>BookmarkMoveDown
+nmap Bg <Plug>BookmarkMoveToLine
 let g:bookmark_no_default_key_mappings = 1
 " ----------------------------------------------------------------------------
 " Various
@@ -1030,7 +1033,7 @@ set termguicolors
 set background=dark
 " colorscheme jellybeans
 " colorscheme neodark
-" colorscheme monokai-phoenix
 " colorscheme molokayo
-colorscheme evokai
+" colorscheme evokai
+colorscheme monokai-phoenix
 
