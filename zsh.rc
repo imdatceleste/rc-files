@@ -70,10 +70,6 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570%F{200}>>>%f "
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰\uF460 "
 POWERLEVEL9K_DIR_PATH_SEPARATOR="/"
 
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context ssh root_indicator dir_writable dir )
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon host ssh root_indicator dir_writable dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time background_jobs load disk_usage ram history status time)
-
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND="green"
 POWERLEVEL9K_VCS_CLEAN_FOREGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="yellow"
@@ -106,10 +102,10 @@ POWERLEVEL9K_TIME_FORMAT="%D{%T}" #  15:29:33
 POWERLEVEL9K_TIME_FOREGROUND="$DEFAULT_FOREGROUND"
 POWERLEVEL9K_TIME_BACKGROUND="$DEFAULT_BACKGROUND"
 
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON=""
+POWERLEVEL9K_VCS_GIT_GITHUB_ICON="\uf09b"
 POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=""
-POWERLEVEL9K_VCS_GIT_GITLAB_ICON=""
-POWERLEVEL9K_VCS_GIT_ICON=""
+POWERLEVEL9K_VCS_GIT_GITLAB_ICON="\uf296"
+POWERLEVEL9K_VCS_GIT_ICON="\uF113"
 
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="$DEFAULT_FOREGROUND"
@@ -187,6 +183,11 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-1]="fg=cyan,bold"
 ZSH_HIGHLIGHT_STYLES[bracket-level-2]="fg=green,bold"
 ZSH_HIGHLIGHT_STYLES[bracket-level-3]="fg=magenta,bold"
 ZSH_HIGHLIGHT_STYLES[bracket-level-4]="fg=yellow,bold"
+
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR='·'
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_BACKGROUND=
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon host ssh root_indicator dir_writable dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time background_jobs load disk_usage ram history status time)
 
 # =============================================================================
 #                                   Plugins
@@ -449,9 +450,8 @@ export LANG=en_US.UTF-8
 alias l='$(whence -p lsd) -lAFh $@'
 # alias python='$(whence -p python3) $@'
 alias vi='nvim'
-export PATH="$PATH:/Users/iso/Development/flutter/bin"
-export GOPATH="$GOPATH:/Users/iso/go"
-export GH_TOKEN=""
-echo "GH ACCESS TOKEN MISSING - FIXME!!!"
+export PATH="$PATH:$HOME/Development/flutter/bin"
+export GOPATH="$GOPATH:$HOME/go"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export RANGER_LOAD_DEFAULT_RC=FALSE
+source ~/.github.rc
