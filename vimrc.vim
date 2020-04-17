@@ -79,6 +79,9 @@ Plug 'tpope/vim-fugitive'
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
+" VIM Signify
+" Plug 'mhinz/vim-signify'
+
 " Git-tools (on top of vim-fugitive)
 Plug 'junegunn/gv.vim'
 
@@ -161,7 +164,7 @@ Plug 'skywind3000/vim-quickui'
 Plug 'yggdroot/indentline'
 
 " Smooth scrolling in VIM
-Plug 'yonchu/accelerated-smooth-scroll'
+" Plug 'yonchu/accelerated-smooth-scroll'
 
 " Paint css colors with the real color (CSS/HTML)
 Plug 'lilydjwg/colorizer'
@@ -362,7 +365,7 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$']
+let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xcodeproj$', '\.xcworkspace$']
 
 " ----------------------------------------------------------------------------
 " Indentline
@@ -426,6 +429,7 @@ set statusline+=%*
 " I'm setting Syntastic to "offline" mode so that I can run it manually
 " Otherwise, opening files takes too long with 'dart', 'swift', and 'rust'
 autocmd vimenter * SyntasticToggleMode
+autocmd vimenter * GitGutterLineHighlightsDisable
 " auto open or close NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -449,9 +453,9 @@ let g:python3_host_prog = "/usr/local/bin/python3"
 let g:python_host_prog = "/usr/local/bin/python"
 
 " ----------------------------------------------------------------------------
-" CtrlP - Show Big Letters
+" CtrlP - Ctrl P
 " ----------------------------------------------------------------------------
-let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_cmd = 'CtrlP'
 set wildignore+=*/.git/*,*/.svn/*,*/DerivedData/*,*/build/*
 " ----------------------------------------------------------------------------
 " ChooseWin - Show Big Letters
@@ -576,7 +580,7 @@ let g:gruvbox_italic=1
 let g:gruvbox_improved_strings=1
 
 " ----------------------------------------------------------------------------
-" COLO neodark : If we use gruvbox as colorscheme...
+" COLO neodark : If we use neodark as colorscheme...
 " ----------------------------------------------------------------------------
 let g:neodark#background = '#202020'
 let g:neodark#solid_vertsplit = 1
@@ -995,7 +999,7 @@ call quickui#menu#install('&Git', [
             \ ])
 
 " enable to display tips in the cmdline
-let g:quickui_show_tip = 0
+" let g:quickui_show_tip = 0
 
 " hit Home twice to open menu
 noremap <Home><Home> :call quickui#menu#open()<CR>
@@ -1035,5 +1039,6 @@ set background=dark
 " colorscheme neodark
 " colorscheme molokayo
 " colorscheme evokai
-colorscheme monokai-phoenix
+colorscheme molokayo
+" colorscheme monokai-phoenix
 
