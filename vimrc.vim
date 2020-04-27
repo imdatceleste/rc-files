@@ -13,12 +13,6 @@
 " ============================================================================
 call plug#begin('~/.vim/plugged')
 " ----------------------------------------------------------------------------
-" Opening files
-" ----------------------------------------------------------------------------
-" If your vim crashed and the file was open, you can compare 
-Plug 'chrisbra/recover.vim'
-
-" ----------------------------------------------------------------------------
 " File Browsing & Selection
 " ----------------------------------------------------------------------------
 " Famous NERDTree
@@ -30,15 +24,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Choose win to open a NERDTree item in
 Plug 'weilbith/nerdtree_choosewin-plugin'
 
-" Ranger Support for neovim (you need to have 'ranger' installed)
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-
 " ----------------------------------------------------------------------------
 " Searching in Files, Grepping...
 " ----------------------------------------------------------------------------
-" Plug 'mhinz/vim-grepper'
-Plug 'haya14busa/vim-asterisk'
-
 " Silver Searcher (AG)
 Plug 'gabesoft/vim-ags'
 
@@ -52,7 +40,7 @@ Plug 'markonm/traces.vim'
 Plug 'scrooloose/syntastic'
 
 " Syntax checker/highlighter & more
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
@@ -82,9 +70,6 @@ Plug 'airblade/vim-gitgutter'
 " VIM Signify
 " Plug 'mhinz/vim-signify'
 
-" Git-tools (on top of vim-fugitive)
-Plug 'junegunn/gv.vim'
-
 " ----------------------------------------------------------------------------
 " Editing helpers
 " ----------------------------------------------------------------------------
@@ -103,36 +88,18 @@ Plug 'godlygeek/tabular'
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
 
-" Easy moving around
-Plug 'easymotion/vim-easymotion'
-
-" Yankring with History
-Plug 'vim-scripts/YankRing.vim'
-
 " Vim Peekaboo - show my buffers
 Plug 'junegunn/vim-peekaboo'
 
 " Bookmarks
 Plug 'mattesgroeger/vim-bookmarks'
 
-" Markbar
-Plug 'yilin-yang/vim-markbar'
-
-" Formatting - NeoFormat: https://vimawesome.com/plugin/neoformat
-Plug 'sbdchd/neoformat'
-
 " TableMode - use with :TableModeToggle => https://vimawesome.com/plugin/table-mode
 Plug 'dhruvasagar/vim-table-mode'
-
-" Function argument wrapping on/off
-Plug 'foosoft/vim-argwrap'
 
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
-" Class/module browser
-Plug 'majutsushi/tagbar'
-
 " Tab list panel
 Plug 'kien/tabman.vim'
 
@@ -157,14 +124,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " ----------------------------------------------------------------------------
 " Nicer UI
 " ----------------------------------------------------------------------------
-" WhichKey
-Plug 'skywind3000/vim-quickui'
 
 " Indent Lines
 Plug 'yggdroot/indentline'
-
-" Smooth scrolling in VIM
-" Plug 'yonchu/accelerated-smooth-scroll'
 
 " Paint css colors with the real color (CSS/HTML)
 Plug 'lilydjwg/colorizer'
@@ -177,24 +139,9 @@ Plug 'ryanoasis/vim-devicons'
 " Show file-types in different colors (NERDTree)
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-" Semantic Highlighter; use with ":SemanticHighlightToggle""
-Plug 'jaxbot/semantic-highlight.vim'
-
 " ----------------------------------------------------------------------------
 " vim/neovim & external apps 
 " ----------------------------------------------------------------------------
-" Undo Tree
-Plug 'mbbill/undotree'
-
-" Dash-Support (Add necessary docsets to Dash)
-" If you are on Windows or Linux, use zeal instead
-Plug 'rizzatti/dash.vim'
-
-" Mozilla Developer Network
-" Don't forget to 'gem install mdn_query'
-" Use with ':MdnQuery'
-Plug 'jungomi/vim-mdnquery'
-
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -490,12 +437,6 @@ let g:airline_symbols.linenr = ''
 let g:airline_solarized_bg='dark'
 
 let g:airline#extensions#clock#format = '%H:%M'
-" ----------------------------------------------------------------------------
-" QuickUI
-" ----------------------------------------------------------------------------
-let g:quickui_border_style = 2
-let g:quickui_color_scheme = 'gruvbox'
-
 " ----------------------------------------------------------------------------
 " VIM Markdown
 " ----------------------------------------------------------------------------
@@ -912,125 +853,6 @@ let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
 " ============================================================================
-" QuickUI -> QuickMenu
-" ============================================================================
-" clear all the menus
-call quickui#menu#reset()
-
-function! DisplayFoldHelp() 
-    let content = [
-                \ "",
-                \ "  z+o    opens a fold at the cursor.",
-                \ "  z+O    opens all folds at the cursor.",
-                \ "  z+c    closes a fold at the cursor.",
-                \ "  z+m    increases the foldlevel by one.",
-                \ "  z+M    closes all open folds.",
-                \ "  z+r    decreases the foldlevel by one.",
-                \ "  z+R    decreases the foldlevel to zero -- all folds will be open.  ",
-                \ ""
-                \]
-    let opts = {"close":"button", "title":"Folding Help"}
-    call quickui#textbox#open(content, opts)
-endfunc
-
-function! DisplayHistoryCommands() 
-    let content = [
-                \ "",
-                \ "  o or <cr> on a commit  display the content of it  ",
-                \ "  o or <cr> on commits   display the diff in the range  ",
-                \ "  O                      opens a new tab instead  ",
-                \ "  gb                     for :Gbrowse  ",
-                \ "  ]] and [[              move between commits  ",
-                \ "  .                      tstart command-line with :Git [CURSOR] SHA à la fugitive  ",
-                \ "  q or gq                close  ",
-                \ ""
-                \]
-    let opts = {"close":"button", "title":"GIT History Commands"}
-    call quickui#textbox#open(content, opts)
-endfunc
-
-" install a 'File' menu, use [text, command] to represent an item.
-call quickui#menu#install('&File', [
-            \ [ "&New File", 'new' ],
-            \ [ "&Open File", 'RnvimrToggle' ],
-            \ [ "&Close", 'close' ],
-            \ [ "--", '' ],
-            \ [ "&Save", 'write'],
-            \ [ "--", '' ],
-            \ [ "E&xit", 'quit' ],
-            \ ])
-
-call quickui#menu#install("&Tools", [
-            \ [ "Toggle &NERDTree\tF1", 'NERDTreeToggle'],
-            \ [ "NERDTree Find", 'NERDTreeFind'],
-            \ [ "--", '' ],
-            \ [ "Choose &Window\tF2", 'ChooseWin'],
-            \ [ "Toggle TabMan\tF3", 'TMToggle'],
-            \ [ "Toggle TagBar\tF4", 'TagbarToggle'],
-            \ [ "--", '' ],
-            \ [ "Comment together\tF5", '<leader>cm'],
-            \ [ "... Line by Line\tF6", '<leader>cb'],
-            \ [ "... Sexy\tF7", '<leader>cs'],
-            \ [ "Uncomment\tF8", '<leader>cu'],
-            \ [ "--", '' ],
-            \ [ "Buffer Switcher...", "call quickui#tools#list_buffer('e')"],
-            \ [ "--", '' ],
-            \ ["&Folding Help", 'call DisplayFoldHelp()', ''],
-            \ ["&Toggle Undo Tree", 'UndotreeToggle', ''],
-            \ ])
-
-" items containing tips, tips will display in the cmdline
-
-call quickui#menu#install('&Syntastic', [
-            \ [ '&Check Syntax', 'SyntasticCheck' ],
-            \ [ "--", '' ],
-            \ [ '&Show Window', 'lopen' ],
-            \ [ "--", '' ],
-            \ [ '&Next error', 'lnext' ],
-            \ [ '&Previous error', 'lprevious'],
-            \ ])
-
-call quickui#menu#install('&Git', [
-            \ [ '&Show Commit History', 'GV' ],
-            \ [ '... This File', 'GV!' ],
-            \ [ '... This File (LocList)', 'GV?' ],
-            \ [ "--", '' ],
-            \ [ 'History commands...', 'call DisplayHistoryCommands()' ],
-            \ ])
-
-" enable to display tips in the cmdline
-" let g:quickui_show_tip = 0
-
-" hit Home twice to open menu
-noremap <Home><Home> :call quickui#menu#open()<CR>
-
-" ============================================================================
-" Ranger Access
-" ============================================================================
-" Ranger is set to Shift-F2
-" Make Ranger replace netrw and be the file explorer
-let g:rnvimr_ex_enable = 1
-" let g:rnvimr_pick_enable = 1
-let g:rnvimr_split_action = { '<C-t>': 'tab split', '<C-x>': 'split', '<C-v>': 'vsplit' }
-
-" Customize the initial layout
-let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': float2nr(round(0.8 * &columns)),
-            \ 'height': float2nr(round(0.4 * &lines)),
-            \ 'col': float2nr(round(0.1 * &columns)),
-            \ 'row': float2nr(round(0.3 * &lines)),
-            \ 'style': 'minimal' }
-
-" " Customize multiple preset layouts
-" " '{}' represents the initial layout
-let g:rnvimr_presets = [
-            \ {'width': 0.250, 'height': 0.250},
-            \ {'width': 0.333, 'height': 0.333},
-            \ {},
-            \ {'width': 0.750, 'height': 0.500},
-            \ {'width': 0.800, 'height': 0.600}]
-
-" ============================================================================
 " Colorscheme Settings
 " ============================================================================
 set termguicolors
@@ -1039,6 +861,6 @@ set background=dark
 " colorscheme neodark
 " colorscheme molokayo
 " colorscheme evokai
-colorscheme molokayo
-" colorscheme monokai-phoenix
+" colorscheme molokayo
+colorscheme monokai-phoenix
 
