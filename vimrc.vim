@@ -24,9 +24,14 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Choose win to open a NERDTree item in
 Plug 'weilbith/nerdtree_choosewin-plugin'
 
+" Ranger Support for neovim (you need to have 'ranger' installed)		
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}		
+
 " ----------------------------------------------------------------------------
 " Searching in Files, Grepping...
 " ----------------------------------------------------------------------------
+Plug 'haya14busa/vim-asterisk'
+"
 " Silver Searcher (AG)
 Plug 'gabesoft/vim-ags'
 
@@ -41,6 +46,8 @@ Plug 'scrooloose/syntastic'
 
 " Syntax checker/highlighter & more
 " Plug 'sheerun/vim-polyglot'
+
+Plug 'pangloss/vim-javascript'
 
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
@@ -62,13 +69,16 @@ Plug 'plasticboy/vim-markdown'
 " GIT & Co.
 " ----------------------------------------------------------------------------
 " Maybe the best Git integration
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
 " VIM Signify
 " Plug 'mhinz/vim-signify'
+
+" Git-tools (on top of vim-fugitive)		
+" Plug 'junegunn/gv.vim'
 
 " ----------------------------------------------------------------------------
 " Editing helpers
@@ -88,6 +98,12 @@ Plug 'godlygeek/tabular'
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
 
+" Easy moving around		
+Plug 'easymotion/vim-easymotion'		
+
+" Yankring with History		
+Plug 'vim-scripts/YankRing.vim'		
+
 " Vim Peekaboo - show my buffers
 Plug 'junegunn/vim-peekaboo'
 
@@ -96,6 +112,9 @@ Plug 'mattesgroeger/vim-bookmarks'
 
 " TableMode - use with :TableModeToggle => https://vimawesome.com/plugin/table-mode
 Plug 'dhruvasagar/vim-table-mode'
+
+" Markbar		
+Plug 'yilin-yang/vim-markbar'		
 
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
@@ -113,7 +132,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Vim Airline Clock
-Plug 'enricobacis/vim-airline-clock'
+" Plug 'enricobacis/vim-airline-clock'
 
 " ----------------------------------------------------------------------------
 " Preview Support
@@ -128,16 +147,17 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Indent Lines
 Plug 'yggdroot/indentline'
 
-" Paint css colors with the real color (CSS/HTML)
-Plug 'lilydjwg/colorizer'
 " Alternative: (neovim only)
-" Plug 'norcalli/nvim-colorizer.lua'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " File Type Icons for NERDTree
 Plug 'ryanoasis/vim-devicons'
 
 " Show file-types in different colors (NERDTree)
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Semantic Highlighter
+Plug 'jaxbot/semantic-highlight.vim'
 
 " ----------------------------------------------------------------------------
 " vim/neovim & external apps 
@@ -148,20 +168,19 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Rename current file
 Plug 'danro/rename.vim'
 
+" Mozilla Developer Network		
+" Don't forget to 'gem install mdn_query'		
+" Use with ':MdnQuery'		
+Plug 'jungomi/vim-mdnquery'
+
 " ----------------------------------------------------------------------------
 " COLOR Schemes
 " ----------------------------------------------------------------------------
-" My preference: (1) molokayo, (2) neodark, (3) jellybeans, (4) lucid, (5)
-" gruvbox, (6) night-owl
-Plug 'nanotech/jellybeans.vim'
 Plug 'tomasr/molokai'
 Plug 'fmoralesc/molokayo'
 Plug 'sickill/vim-monokai'
-Plug 'morhetz/gruvbox'
-Plug 'cseelus/vim-colors-lucid'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'reewr/vim-monokai-phoenix'
 Plug 'amadeus/vim-evokai'
+Plug 'reewr/vim-monokai-phoenix'
 
 " ----------------------------------------------------------------------------
 " Fun
@@ -176,6 +195,7 @@ call plug#end()
 " ============================================================================
 filetype plugin on
 filetype indent on
+filetype plugin indent on
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -355,6 +375,7 @@ let g:syntastic_auto_loc_list = 1
 " If you don't need write JSX, you can use jshint.
 " And eslint is slow, but not a hindrance
 let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = []
 " let g:syntastic_javascript_checkers = ['eslint']
 
 " if you don't want to put icons on the sign column (it hides the vcs status icons of signify), set this to 0
@@ -375,7 +396,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " I'm setting Syntastic to "offline" mode so that I can run it manually
 " Otherwise, opening files takes too long with 'dart', 'swift', and 'rust'
-autocmd vimenter * SyntasticToggleMode
+" autocmd vimenter * SyntasticToggleMode
 autocmd vimenter * GitGutterLineHighlightsDisable
 " auto open or close NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -717,133 +738,6 @@ function SetTitle()
 endfunction
 autocmd BufNewFile * normal G
 
-
-" ----------------------------------------------------------------------------
-" COC Configuration 
-" ----------------------------------------------------------------------------
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
-  " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying codeAction to the current line.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Introduce function text object
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" Use <TAB> for selections ranges.
-" NOTE: Requires 'textDocument/selectionRange' support from the language server.
-" coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings using CoCList:
-" Show all diagnostics.
-" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" " Manage extensions.
-" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" " Show commands.
-" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" " Find symbol of current document.
-" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" " Search workspace symbols.
-" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" " Do default action for next item.
-" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" " Do default action for previous item.
-" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" " Resume latest coc list.
-" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-" ----------------------------------------------------------------------------
-" END COC Configuration 
-" ----------------------------------------------------------------------------
-
 " ----------------------------------------------------------------------------
 " Bookmarks Settings
 " ----------------------------------------------------------------------------
@@ -851,6 +745,34 @@ highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
+
+" ============================================================================		
+" Ranger Access		
+" ============================================================================		
+" Ranger is set to Shift-F2		
+" Make Ranger replace netrw and be the file explorer		
+let g:rnvimr_ex_enable = 1		
+" let g:rnvimr_pick_enable = 1		
+let g:rnvimr_split_action = { '<C-t>': 'tab split', '<C-x>': 'split', '<C-v>': 'vsplit' }		
+
+" Customize the initial layout		
+let g:rnvimr_layout = { 'relative': 'editor',		
+             \ 'width': float2nr(round(0.8 * &columns)),		
+             \ 'height': float2nr(round(0.4 * &lines)),		
+             \ 'col': float2nr(round(0.1 * &columns)),		
+             \ 'row': float2nr(round(0.3 * &lines)),		
+             \ 'style': 'minimal' }		
+
+" Customize multiple preset layouts		
+" '{}' represents the initial layout		
+let g:rnvimr_presets = [		
+             \ {'width': 0.250, 'height': 0.250},		
+             \ {'width': 0.333, 'height': 0.333},		
+             \ {},		
+             \ {'width': 0.750, 'height': 0.500},		
+             \ {'width': 0.800, 'height': 0.600}]		
+
+" source ~/.vim/coc-a.vim
 
 " ============================================================================
 " Colorscheme Settings
@@ -864,3 +786,5 @@ set background=dark
 " colorscheme molokayo
 colorscheme monokai-phoenix
 
+autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
