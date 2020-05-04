@@ -417,7 +417,7 @@ let g:pymode_rope = 0
 let g:pymode_rope_goto_definition_bind = ',d'
 let g:pymode_rope_goto_definition_cmd = 'e'
 
-let g:python3_host_prog = "/usr/local/bin/python3"
+let g:python3_host_prog = "/usr/local/bin/python"
 let g:python_host_prog = "/usr/local/bin/python"
 
 " ----------------------------------------------------------------------------
