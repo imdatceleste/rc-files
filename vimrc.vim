@@ -21,16 +21,16 @@ Plug 'scrooloose/nerdtree'
 " Show git-status within NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" Choose win to open a NERDTree item in
-Plug 'weilbith/nerdtree_choosewin-plugin'
+" File Type Icons for NERDTree
+Plug 'ryanoasis/vim-devicons'
 
-" Ranger Support for neovim (you need to have 'ranger' installed)		
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}		
+" Show file-types in different colors (NERDTree)
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " ----------------------------------------------------------------------------
 " Searching in Files, Grepping...
 " ----------------------------------------------------------------------------
-Plug 'haya14busa/vim-asterisk'
+" Plug 'haya14busa/vim-asterisk'
 "
 " Silver Searcher (AG)
 Plug 'gabesoft/vim-ags'
@@ -45,10 +45,9 @@ Plug 'markonm/traces.vim'
 Plug 'scrooloose/syntastic'
 
 " Syntax checker/highlighter & more
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
-Plug 'pangloss/vim-javascript'
-
+Plug 'keith/swift.vim'
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Plug 'python-mode/python-mode'
@@ -89,9 +88,6 @@ Plug 'Townk/vim-autoclose'
 " COC - the best completion helper I could find 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Allows for drawing using cursor-keys (ASCII-Art)
-Plug 'vim-scripts/DrawIt'
-
 " Tabularizer
 Plug 'godlygeek/tabular'
 
@@ -116,6 +112,11 @@ Plug 'dhruvasagar/vim-table-mode'
 " Markbar		
 Plug 'yilin-yang/vim-markbar'		
 
+" EditorConfig - makes life easier in teams
+Plug 'editorconfig/editorconfig-vim'
+
+" Vista
+Plug 'liuchengxu/vista.vim'
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
@@ -131,9 +132,6 @@ Plug 't9md/vim-choosewin'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Vim Airline Clock
-" Plug 'enricobacis/vim-airline-clock'
-
 " ----------------------------------------------------------------------------
 " Preview Support
 " ----------------------------------------------------------------------------
@@ -143,35 +141,26 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " ----------------------------------------------------------------------------
 " Nicer UI
 " ----------------------------------------------------------------------------
-
 " Indent Lines
 Plug 'yggdroot/indentline'
 
 " Alternative: (neovim only)
 Plug 'norcalli/nvim-colorizer.lua'
 
-" File Type Icons for NERDTree
-Plug 'ryanoasis/vim-devicons'
-
-" Show file-types in different colors (NERDTree)
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " Semantic Highlighter
 Plug 'jaxbot/semantic-highlight.vim'
 
 " ----------------------------------------------------------------------------
-" vim/neovim & external apps 
+" Others
 " ----------------------------------------------------------------------------
 " CtrlP
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " Rename current file
-Plug 'danro/rename.vim'
+" Plug 'danro/rename.vim'
 
-" Mozilla Developer Network		
-" Don't forget to 'gem install mdn_query'		
-" Use with ':MdnQuery'		
-Plug 'jungomi/vim-mdnquery'
+" VIM Clap
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 
 " ----------------------------------------------------------------------------
 " COLOR Schemes
@@ -232,8 +221,8 @@ set shiftwidth=4
 set cursorline
 
 " Line break
-set lbr
-set tw=132
+" set lbr
+" set tw=132
 set wrap
 
 " auto read and write
@@ -338,6 +327,9 @@ let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xc
 " Indentline
 " ----------------------------------------------------------------------------
 let g:indentLine_char = '┊'
+
+" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+" let g:indentLine_char_list = ['¦', '┆', '│', '⎸',  '▏']
 let g:indentLine_enabled = 1
 
 " ----------------------------------------------------------------------------
@@ -396,7 +388,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " I'm setting Syntastic to "offline" mode so that I can run it manually
 " Otherwise, opening files takes too long with 'dart', 'swift', and 'rust'
-" autocmd vimenter * SyntasticToggleMode
+autocmd vimenter * SyntasticToggleMode
 autocmd vimenter * GitGutterLineHighlightsDisable
 " auto open or close NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -779,12 +771,11 @@ let g:rnvimr_presets = [
 " ============================================================================
 set termguicolors
 set background=dark
-" colorscheme jellybeans
-" colorscheme neodark
-" colorscheme molokayo
 " colorscheme evokai
 " colorscheme molokayo
 colorscheme monokai-phoenix
 
-autocmd Filetype javascript setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
-autocmd Filetype vue setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd bufenter *.json set conceallevel=0
+autocmd vimenter *.json set conceallevel=0
+
+map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>

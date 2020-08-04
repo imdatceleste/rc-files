@@ -24,9 +24,9 @@ If you want to use `ranger` with `vim`, you need to install it using your favori
 
 You should install
 
-- ranger
 - msgpack
 - neovim
+- ripgrep (rg)
 - lsd
 - ag (silver-search)
 - your favorite language parsers (dart, swift, rust, jslint,...)
