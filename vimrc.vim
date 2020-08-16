@@ -19,11 +19,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " Show git-status within NERDTree
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-
-
-" Show file-types in different colors (NERDTree)
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " ----------------------------------------------------------------------------
 " Searching in Files, Grepping...
@@ -39,45 +35,20 @@ Plug 'markonm/traces.vim'
 " ----------------------------------------------------------------------------
 " Syntax Highlighting/Checking tools
 " ----------------------------------------------------------------------------
-" Sytanstic: The MAIN syntax highglighter
+"  Syntastic - Syntax checking
 Plug 'scrooloose/syntastic'
 
-" Javascript bundle for vim
-Plug 'pangloss/vim-javascript'
-
-" Swift bundle for vim
-Plug 'keith/swift.vim'
-
-" Python mode (indentation, doc, refactor, lints, code checking, motion and
-" operators, highlighting, run and ipdb breakpoints)
-Plug 'python-mode/python-mode'
+" Polyglott - Syntax Highlighting
+Plug 'sheerun/vim-polyglot'
 
 " Automatically sort python imports
 Plug 'fisadev/vim-isort'
 
-" Rust (supported by syntastic)
-Plug 'rust-lang/rust.vim'
-
-" Dart Vim (supported by syntastic)
-Plug 'dart-lang/dart-vim-plugin'
-
-" Markdown syntastic highlight
-Plug 'plasticboy/vim-markdown'
-
 " ----------------------------------------------------------------------------
 " GIT & Co.
 " ----------------------------------------------------------------------------
-" Maybe the best Git integration
-" Plug 'tpope/vim-fugitive'
-
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
-
-" VIM Signify
-" Plug 'mhinz/vim-signify'
-
-" Git-tools (on top of vim-fugitive)		
-" Plug 'junegunn/gv.vim'
 
 " ----------------------------------------------------------------------------
 " Editing helpers
@@ -133,12 +104,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " ----------------------------------------------------------------------------
-" Preview Support
-" ----------------------------------------------------------------------------
-" Markdown Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-" ----------------------------------------------------------------------------
 " Nicer UI
 " ----------------------------------------------------------------------------
 " Indent Lines
@@ -156,9 +121,6 @@ Plug 'jaxbot/semantic-highlight.vim'
 " CtrlP
 " Plug 'ctrlpvim/ctrlp.vim'
 
-" Rename current file
-" Plug 'danro/rename.vim'
-
 " VIM Clap
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 
@@ -170,12 +132,6 @@ Plug 'fmoralesc/molokayo'
 Plug 'sickill/vim-monokai'
 Plug 'amadeus/vim-evokai'
 Plug 'reewr/vim-monokai-phoenix'
-
-" ----------------------------------------------------------------------------
-" Fun
-" ----------------------------------------------------------------------------
-" :Typer <filename>
-Plug 'promix17/typer'
 
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
@@ -324,6 +280,9 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xcodeproj$', '\.xcworkspace$']
+let g:NERDTreeGitStatusUseNerdFonts = 0
+let g:NERDTreeGitStatusGitBinPath="/usr/local/git/bin/git"
+let g:NERDTreeGitStatusPorcelainVersion=1
 
 " ----------------------------------------------------------------------------
 " Indentline
