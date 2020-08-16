@@ -216,8 +216,8 @@ zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 #zplug "plugins/nanoc", from:oh-my-zsh, if:"which nanoc"
 #zplug "plugins/vi-mode", from:oh-my-zsh
 
+zplug "plugins/chucknorris", from:oh-my-zsh
 zplug "plugins/git",    from:oh-my-zsh, if:"which git"
-zplug "plugins/go",     from:oh-my-zsh, if:"which go"
 zplug "plugins/golang", from:oh-my-zsh, if:"which go"
 zplug "plugins/nmap",   from:oh-my-zsh, if:"which nmap"
 zplug "plugins/sudo",   from:oh-my-zsh, if:"which sudo"
@@ -455,3 +455,4 @@ export GOPATH="$GOPATH:$HOME/go"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export RANGER_LOAD_DEFAULT_RC=FALSE
 source ~/.github.rc
+chuck_cow
