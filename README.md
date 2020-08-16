@@ -29,6 +29,8 @@ You should install
 - ripgrep (rg)
 - lsd
 - ag (silver-search)
+- fortune
+- cowsay
 - your favorite language parsers (dart, swift, rust, jslint,...)
 
 ## For vim & neovim
