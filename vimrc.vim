@@ -281,7 +281,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xcodeproj$', '\.xcworkspace$']
 let g:NERDTreeGitStatusUseNerdFonts = 0
-let g:NERDTreeGitStatusGitBinPath="/usr/local/git/bin/git"
+" let g:NERDTreeGitStatusGitBinPath="/usr/local/git/bin/git"
 let g:NERDTreeGitStatusPorcelainVersion=1
 
 " ----------------------------------------------------------------------------
