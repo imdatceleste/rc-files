@@ -19,10 +19,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " Show git-status within NERDTree
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" File Type Icons for NERDTree
-Plug 'ryanoasis/vim-devicons'
 
 " Show file-types in different colors (NERDTree)
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -44,10 +42,12 @@ Plug 'markonm/traces.vim'
 " Sytanstic: The MAIN syntax highglighter
 Plug 'scrooloose/syntastic'
 
-" Syntax checker/highlighter & more
-Plug 'sheerun/vim-polyglot'
+" Javascript bundle for vim
+Plug 'pangloss/vim-javascript'
 
+" Swift bundle for vim
 Plug 'keith/swift.vim'
+
 " Python mode (indentation, doc, refactor, lints, code checking, motion and
 " operators, highlighting, run and ipdb breakpoints)
 Plug 'python-mode/python-mode'
@@ -177,6 +177,8 @@ Plug 'reewr/vim-monokai-phoenix'
 " :Typer <filename>
 Plug 'promix17/typer'
 
+" File Type Icons for NERDTree - supposed to be loaded as last one
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " ============================================================================
