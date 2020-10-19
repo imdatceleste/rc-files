@@ -454,5 +454,6 @@ export PATH="$PATH:$HOME/Development/flutter/bin"
 export GOPATH="$GOPATH:$HOME/go"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export RANGER_LOAD_DEFAULT_RC=FALSE
+export SENTRY_URL=https://sm-sentry.g3o.io/
 source ~/.github.rc
 chuck_cow
