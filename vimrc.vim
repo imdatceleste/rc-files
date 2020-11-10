@@ -12,6 +12,8 @@
 " NOTE: I'm using Vim-Plug
 " ============================================================================
 call plug#begin('~/.vim/plugged')
+
+set nocompatible
 " ----------------------------------------------------------------------------
 " File Browsing & Selection
 " ----------------------------------------------------------------------------
@@ -26,8 +28,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " ----------------------------------------------------------------------------
 " Plug 'haya14busa/vim-asterisk'
 "
-" Silver Searcher (AG)
-Plug 'gabesoft/vim-ags'
 
 " Traces vim - highlights pattersn and ranges for Ex commands
 Plug 'markonm/traces.vim'
@@ -39,7 +39,11 @@ Plug 'markonm/traces.vim'
 Plug 'scrooloose/syntastic'
 
 " Polyglott - Syntax Highlighting
+" the standard vue-plugin in polyglot is horrendously slow, we switch it
+" off here and use 'vim-vue-plugin'
+let g:polyglot_disabled = ['vue']
 Plug 'sheerun/vim-polyglot'
+Plug 'leafOfTree/vim-vue-plugin'
 
 " Automatically sort python imports
 Plug 'fisadev/vim-isort'
@@ -65,9 +69,6 @@ Plug 'godlygeek/tabular'
 " Easy commenting
 Plug 'scrooloose/nerdcommenter'
 
-" Easy moving around		
-Plug 'easymotion/vim-easymotion'		
-
 " Yankring with History		
 Plug 'vim-scripts/YankRing.vim'		
 
@@ -86,8 +87,6 @@ Plug 'yilin-yang/vim-markbar'
 " EditorConfig - makes life easier in teams
 Plug 'editorconfig/editorconfig-vim'
 
-" Vista
-Plug 'liuchengxu/vista.vim'
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
@@ -119,10 +118,7 @@ Plug 'jaxbot/semantic-highlight.vim'
 " Others
 " ----------------------------------------------------------------------------
 " CtrlP
-" Plug 'ctrlpvim/ctrlp.vim'
-
-" VIM Clap
-Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'ctrlpvim/ctrlp.vim'
 
 " ----------------------------------------------------------------------------
 " COLOR Schemes
@@ -327,7 +323,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " If you don't need write JSX, you can use jshint.
 " And eslint is slow, but not a hindrance
-let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['jshint']
 " let g:syntastic_javascript_checkers = []
 " let g:syntastic_javascript_checkers = ['eslint']
 
@@ -370,8 +366,8 @@ let g:pymode_rope = 0
 let g:pymode_rope_goto_definition_bind = ',d'
 let g:pymode_rope_goto_definition_cmd = 'e'
 
-let g:python3_host_prog = "/usr/local/bin/python"
-let g:python_host_prog = "/usr/local/bin/python"
+let g:python3_host_prog = "/usr/bin/env python3"
+let g:python_host_prog = "/usr/bin/evn python"
 
 " ----------------------------------------------------------------------------
 " CtrlP - Ctrl P
@@ -738,5 +734,4 @@ colorscheme monokai-phoenix
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
-
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
