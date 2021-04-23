@@ -450,6 +450,7 @@ export LANG=en_US.UTF-8
 alias l='$(whence -p lsd) -lAFh $@'
 # alias python='$(whence -p python3) $@'
 alias vi='nvim'
+export EDITOR="nvim"
 export PATH="$PATH:$HOME/Development/flutter/bin"
 export GOPATH="$GOPATH:$HOME/go"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1

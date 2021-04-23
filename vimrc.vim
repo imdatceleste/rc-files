@@ -28,6 +28,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " ----------------------------------------------------------------------------
 " Plug 'haya14busa/vim-asterisk'
 "
+Plug 'gabesoft/vim-ags'
 
 " Traces vim - highlights pattersn and ranges for Ex commands
 Plug 'markonm/traces.vim'
@@ -45,6 +46,15 @@ let g:polyglot_disabled = ['vue']
 Plug 'sheerun/vim-polyglot'
 Plug 'leafOfTree/vim-vue-plugin'
 
+" Dart/Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+" Use all the defaults (recommended):
+let g:lsc_auto_map = v:true
+
+"
 " Automatically sort python imports
 Plug 'fisadev/vim-isort'
 
@@ -335,7 +345,7 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 " If you want to open dart files faster, uncomment the following
-let g:syntastic_dart_checkers = ['dartanalyzer']
+" let g:syntastic_dart_checkers = ['dartanalyzer']
 
 " Swift mode
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
