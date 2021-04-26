@@ -134,10 +134,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " COLOR Schemes
 " ----------------------------------------------------------------------------
 Plug 'tomasr/molokai'
-Plug 'fmoralesc/molokayo'
-Plug 'sickill/vim-monokai'
-Plug 'amadeus/vim-evokai'
 Plug 'reewr/vim-monokai-phoenix'
+Plug 'lifepillar/vim-gruvbox8'
 
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
@@ -488,10 +486,6 @@ let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_use_location_list = 1
 let g:gitgutter_sign_allow_clobber = 1
 autocmd BufWritePost * GitGutter
-" ----------------------------------------------------------------------------
-" COLO jellybeans : If we use jellybeans as colorscheme...
-" ----------------------------------------------------------------------------
-let g:jellybeans_use_term_italics = 1
 
 " ----------------------------------------------------------------------------
 " COLO gruvbox : If we use gruvbox as colorscheme...
@@ -499,13 +493,6 @@ let g:jellybeans_use_term_italics = 1
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italic=1
 let g:gruvbox_improved_strings=1
-
-" ----------------------------------------------------------------------------
-" COLO neodark : If we use neodark as colorscheme...
-" ----------------------------------------------------------------------------
-let g:neodark#background = '#202020'
-let g:neodark#solid_vertsplit = 1
-let g:neodark#terminal_transparent = 1
 
 " ============================================================================
 " MAPPINGS 
@@ -738,9 +725,9 @@ let g:rnvimr_presets = [
 " ============================================================================
 set termguicolors
 set background=dark
-" colorscheme evokai
-" colorscheme molokayo
-colorscheme monokai-phoenix
+colorscheme molokai
+" colorscheme monokai-phoenix
+" colorscheme gruvbox8
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
