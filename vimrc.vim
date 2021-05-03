@@ -133,9 +133,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " ----------------------------------------------------------------------------
 " COLOR Schemes
 " ----------------------------------------------------------------------------
-Plug 'tomasr/molokai'
 Plug 'reewr/vim-monokai-phoenix'
-Plug 'lifepillar/vim-gruvbox8'
+Plug 'marfisc/vorange'
+Plug 'rakr/vim-colors-rakr'
 
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
@@ -725,9 +725,9 @@ let g:rnvimr_presets = [
 " ============================================================================
 set termguicolors
 set background=dark
-colorscheme molokai
 " colorscheme monokai-phoenix
-" colorscheme gruvbox8
+colorscheme vorange
+" colorscheme rakr
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
