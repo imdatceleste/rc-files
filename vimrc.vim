@@ -64,6 +64,11 @@ Plug 'fisadev/vim-isort'
 " Git Gutter
 Plug 'airblade/vim-gitgutter'
 
+" Vim-Fugitive
+Plug 'tpope/vim-fugitive'
+
+" GIT Browser
+Plug 'junegunn/gv.vim'
 " ----------------------------------------------------------------------------
 " Editing helpers
 " ----------------------------------------------------------------------------
@@ -482,10 +487,16 @@ let g:tagbar_type_rust = {
 " ----------------------------------------------------------------------------
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
-let g:gitgutter_preview_win_floating = 1
+let g:gitgutter_preview_win_floating = 0
 let g:gitgutter_use_location_list = 1
 let g:gitgutter_sign_allow_clobber = 1
 autocmd BufWritePost * GitGutter
+map GL :GitGutterLineHighlightsToggle<CR>
+map <C-Down> <Plug>(GitGutterNextHunk)
+imap <C-Down> <Plug>(GitGutterNextHunk)
+map <C-Up> <Plug>(GitGutterPrevHunk)
+imap <C-Up> <Plug>(GitGutterPrevHunk)
+map = <Plug>(GitGutterPreviewHunk)
 
 " ----------------------------------------------------------------------------
 " COLO gruvbox : If we use gruvbox as colorscheme...
@@ -648,20 +659,6 @@ nnoremap <Leader>a :Ags<Space>
 " Quit Ags
 nnoremap <Leader><Leader>a :AgsQuit<CR>
 
-" ----------------------------------------------------------------------------
-" Signify - jump to changed blocks
-" ----------------------------------------------------------------------------
-nmap <leader>sn <plug>(signify-next-hunk)
-nmap <leader>sp <plug>(signify-prev-hunk)
-
-" nicer colors for Signify
-highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
-
 " ============================================================================
 " New file set title and turn to endline
 " ============================================================================
@@ -731,4 +728,6 @@ colorscheme vorange
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
+autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
