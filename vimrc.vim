@@ -69,6 +69,7 @@ Plug 'tpope/vim-fugitive'
 
 " GIT Browser
 Plug 'junegunn/gv.vim'
+
 " ----------------------------------------------------------------------------
 " Editing helpers
 " ----------------------------------------------------------------------------
@@ -102,6 +103,10 @@ Plug 'yilin-yang/vim-markbar'
 " EditorConfig - makes life easier in teams
 Plug 'editorconfig/editorconfig-vim'
 
+" Vi Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
@@ -129,12 +134,12 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Semantic Highlighter
 Plug 'jaxbot/semantic-highlight.vim'
 
+Plug 'ap/vim-css-color'
 " ----------------------------------------------------------------------------
 " Others
 " ----------------------------------------------------------------------------
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ap/vim-css-color'
 " ----------------------------------------------------------------------------
 " COLOR Schemes
 " ----------------------------------------------------------------------------
@@ -318,12 +323,6 @@ let g:tabman_toggle = 'tl'
 let g:tabman_focus  = 'tf'
 
 " ----------------------------------------------------------------------------
-" TagBar
-" ----------------------------------------------------------------------------
-" autofocus on tagbar open
-let g:tagbar_autofocus = 1
-
-" ----------------------------------------------------------------------------
 " NERDCommenter
 " ----------------------------------------------------------------------------
 let g:NERDSpaceDelims = 1
@@ -426,7 +425,7 @@ let g:airline#extensions#clock#format = '%H:%M'
 " VIM Markdown
 " ----------------------------------------------------------------------------
 " Disabled automatically folding
-let g:vim_markdown_folding_disabled=1
+" let g:vim_markdown_folding_disabled=1
 " LeTeX math
 let g:vim_markdown_math=1
 " Highlight YAML frontmatter
@@ -435,54 +434,6 @@ let g:vim_markdown_frontmatter=1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 set cole=0
-" ----------------------------------------------------------------------------
-" VIM Instant Markdown (Markdown-Previewer)
-" ----------------------------------------------------------------------------
-" If it takes your system too much, you can specify
-" let g:instant_markdown_slow = 1
-" if you don't want to manually control it
-" you can open this setting
-" and when you open this, you can manually trigger preview
-" via the command :InstantMarkdownPreview
-let g:instant_markdown_autostart = 0
-
-" ----------------------------------------------------------------------------
-" VIM TagBar support for 'rust'
-" ----------------------------------------------------------------------------
-let g:rust_use_custom_ctags_defs = 1  " if using rust.vim
-let g:tagbar_type_rust = {
-  \ 'ctagsbin' : '/usr/local/bin/ctags',
-  \ 'ctagstype' : 'rust',
-  \ 'kinds' : [
-      \ 'n:modules',
-      \ 's:structures:1',
-      \ 'i:interfaces',
-      \ 'c:implementations',
-      \ 'f:functions:1',
-      \ 'g:enumerations:1',
-      \ 't:type aliases:1:0',
-      \ 'v:constants:1:0',
-      \ 'M:macros:1',
-      \ 'm:fields:1:0',
-      \ 'e:enum variants:1:0',
-      \ 'P:methods:1',
-  \ ],
-  \ 'sro': '::',
-  \ 'kind2scope' : {
-      \ 'n': 'module',
-      \ 's': 'struct',
-      \ 'i': 'interface',
-      \ 'c': 'implementation',
-      \ 'f': 'function',
-      \ 'g': 'enum',
-      \ 't': 'typedef',
-      \ 'v': 'variable',
-      \ 'M': 'macro',
-      \ 'm': 'field',
-      \ 'e': 'enumerator',
-      \ 'P': 'method',
-  \ },
-\ }
 
 " ----------------------------------------------------------------------------
 " GitGutter
@@ -500,13 +451,6 @@ map <C-Up> <Plug>(GitGutterPrevHunk)
 imap <C-Up> <Plug>(GitGutterPrevHunk)
 map = <Plug>(GitGutterPreviewHunk)
 
-" ----------------------------------------------------------------------------
-" COLO gruvbox : If we use gruvbox as colorscheme...
-" ----------------------------------------------------------------------------
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=1
-let g:gruvbox_improved_strings=1
-
 " ============================================================================
 " MAPPINGS 
 " ============================================================================
@@ -522,12 +466,6 @@ map <C-S-Right> :tabn<CR>
 imap <C-S-Right> <ESC>:tabn<CR>
 map <C-S-Left> :tabp<CR>
 imap <C-S-Left> <ESC>:tabp<CR>
-
-" ----------------------------------------------------------------------------
-" Python Mode Settings & Mappings
-" ----------------------------------------------------------------------------
-nmap ,D :tab split<CR>:PymodePython rope.goto()<CR>
-nmap ,o :RopeFindOccurrences<CR>
 
 " ----------------------------------------------------------------------------
 " Navigate Windows with Meta+Arrows
@@ -555,21 +493,12 @@ nmap BK <Plug>BookmarkMoveUp
 nmap BJ <Plug>BookmarkMoveDown
 nmap Bg <Plug>BookmarkMoveToLine
 let g:bookmark_no_default_key_mappings = 1
+
 " ----------------------------------------------------------------------------
 " Various
 " ----------------------------------------------------------------------------
 ca w!! w !sudo tee "%"
 ia <expr> dts strftime('%Y-%m-%d')
-
-" Vim-Markbar: navigate using '`'
-" Jump to marks using <Enter>,
-" Move the cursor to the next mark in the markbar using n,
-" Move the cursor to the previous mark in the markbar using N,
-" Rename marks using r,
-" Clear the name of a mark using c,
-" Delete marks entirely using d.
-"
-" Vim-Peekabo: navigate using '"' and '@'
 
 " ----------------------------------------------------------------------------
 " Various (F-Keys)
@@ -690,34 +619,6 @@ highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
-
-" ============================================================================		
-" Ranger Access		
-" ============================================================================		
-" Ranger is set to Shift-F2		
-" Make Ranger replace netrw and be the file explorer		
-let g:rnvimr_ex_enable = 1		
-" let g:rnvimr_pick_enable = 1		
-let g:rnvimr_split_action = { '<C-t>': 'tab split', '<C-x>': 'split', '<C-v>': 'vsplit' }		
-
-" Customize the initial layout		
-let g:rnvimr_layout = { 'relative': 'editor',		
-             \ 'width': float2nr(round(0.8 * &columns)),		
-             \ 'height': float2nr(round(0.4 * &lines)),		
-             \ 'col': float2nr(round(0.1 * &columns)),		
-             \ 'row': float2nr(round(0.3 * &lines)),		
-             \ 'style': 'minimal' }		
-
-" Customize multiple preset layouts		
-" '{}' represents the initial layout		
-let g:rnvimr_presets = [		
-             \ {'width': 0.250, 'height': 0.250},		
-             \ {'width': 0.333, 'height': 0.333},		
-             \ {},		
-             \ {'width': 0.750, 'height': 0.500},		
-             \ {'width': 0.800, 'height': 0.600}]		
-
-" source ~/.vim/coc-a.vim
 
 " ============================================================================
 " Colorscheme Settings
