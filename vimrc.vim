@@ -134,14 +134,16 @@ Plug 'jaxbot/semantic-highlight.vim'
 " ----------------------------------------------------------------------------
 " CtrlP
 Plug 'ctrlpvim/ctrlp.vim'
-
+Plug 'ap/vim-css-color'
 " ----------------------------------------------------------------------------
 " COLOR Schemes
 " ----------------------------------------------------------------------------
 Plug 'reewr/vim-monokai-phoenix'
 Plug 'marfisc/vorange'
 Plug 'rakr/vim-colors-rakr'
-
+Plug 'ajmwagar/vim-deus'
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'ackyshake/Spacegray.vim'
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -723,8 +725,10 @@ let g:rnvimr_presets = [
 set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
-colorscheme vorange
+" colorscheme vorange
 " colorscheme rakr
+" colorscheme deus
+colorscheme moonfly
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
