@@ -83,7 +83,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'godlygeek/tabular'
 
 " Easy commenting
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 " Yankring with History		
 Plug 'vim-scripts/YankRing.vim'		
@@ -512,6 +512,7 @@ nmap  -  <Plug>(choosewin)
 map <F3> :TMToggle<CR>
 " toggle tagbar display
 map <F4> :TagbarToggle<CR>
+
 " NERDCommenter: Normal multi-line commenting
 map <F5> <leader>cm
 " NERDCommenter: Aligned commenting
@@ -520,6 +521,9 @@ map <F6> <leader>cb
 map <F7> <leader>cs
 " NERDCommenter: Uncomment 
 map <F8> <leader>cu
+
+" NERDCommenter: Switch Comment Style
+map <End> <leader>ca
 
 " F9 - EMPTY
 
@@ -545,9 +549,6 @@ map <F14> :RnvimrToggle<CR>
 map <F23> :CtrlP<CR>
 " Shift-F12
 map <F24> :SyntasticCheck<CR>
-
-" NERDCommenter: Switch Comment Style
-map <End> <leader>ca
 
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
@@ -626,10 +627,10 @@ let g:bookmark_highlight_lines = 1
 set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
-" colorscheme vorange
+colorscheme vorange
 " colorscheme rakr
 " colorscheme deus
-colorscheme moonfly
+" colorscheme moonfly
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
