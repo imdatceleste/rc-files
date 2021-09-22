@@ -51,6 +51,20 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+
+"" Vim LSP related
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
+" Java/Gradle
+Plug 'tfnico/vim-gradle'
+
+" Kotlin
+Plug 'udalov/kotlin-vim'
+
+" Swift
+Plug 'arzg/vim-swift'
+
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
 
@@ -144,11 +158,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " COLOR Schemes
 " ----------------------------------------------------------------------------
 Plug 'reewr/vim-monokai-phoenix'
-Plug 'marfisc/vorange'
-Plug 'rakr/vim-colors-rakr'
-Plug 'ajmwagar/vim-deus'
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'ackyshake/Spacegray.vim'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'crusoexia/vim-monokai'
+
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -621,19 +633,35 @@ highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
+let g:onedark_terminal_italics = 1
 " ============================================================================
 " Colorscheme Settings
 " ============================================================================
 set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
-colorscheme vorange
-" colorscheme rakr
-" colorscheme deus
-" colorscheme moonfly
+colorscheme monokai_pro
+" colorscheme monokai
+
+" SourceKit-LSP configuration
+if executable('sourcekit-lsp')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'sourcekit-lsp',
+        \ 'cmd': {server_info->['sourcekit-lsp']},
+        \ 'whitelist': ['swift'],
+        \ })
+endif
+
+autocmd FileType swift setlocal omnifunc=lsp#complete
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
 autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType kt setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType kt setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
