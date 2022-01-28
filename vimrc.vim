@@ -64,6 +64,7 @@ Plug 'udalov/kotlin-vim'
 
 " Swift
 Plug 'arzg/vim-swift'
+Plug 'xavierd/clang_complete'
 
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
@@ -163,6 +164,7 @@ Plug 'crusoexia/vim-monokai'
 
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 " ============================================================================
@@ -652,16 +654,15 @@ if executable('sourcekit-lsp')
         \ })
 endif
 
-autocmd FileType swift setlocal omnifunc=lsp#complete
+map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
+autocmd FileType swift setlocal 
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
 autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType kt setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType kt setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType kotlin setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType swift setlocal omnifunc=lsp#complete sw=2 ts=2 softtabstop=2
+autocmd FileType javscript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd vimenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
+autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
-map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
