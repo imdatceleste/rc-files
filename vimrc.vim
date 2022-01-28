@@ -662,7 +662,7 @@ autocmd vimenter *.json set conceallevel=0
 autocmd FileType dart setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType kotlin setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType swift setlocal omnifunc=lsp#complete sw=2 ts=2 softtabstop=2
-autocmd FileType javscript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd vimenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
