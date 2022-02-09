@@ -71,7 +71,7 @@ let g:lsc_auto_map = v:true
 
 "
 " Automatically sort python imports
-Plug 'fisadev/vim-isort'
+" Plug 'fisadev/vim-isort'
 
 " ----------------------------------------------------------------------------
 " GIT & Co.
@@ -313,6 +313,7 @@ let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xc
 let g:NERDTreeGitStatusUseNerdFonts = 0
 " let g:NERDTreeGitStatusGitBinPath="/usr/local/git/bin/git"
 let g:NERDTreeGitStatusPorcelainVersion=1
+let g:NERDTreeWinSize=50
 
 " ----------------------------------------------------------------------------
 " Indentline
@@ -383,19 +384,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Python-Mode Settings
 " ----------------------------------------------------------------------------
 " don't use linter, we use syntastic for that
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_signs = 0
+" let g:pymode_lint_on_write = 0
+" let g:pymode_lint_signs = 0
 " don't fold python code on open
-let g:pymode_folding = 0
+" let g:pymode_folding = 0
 " don't load rope by default. Change to 1 to use rope
-let g:pymode_rope = 0
+" let g:pymode_rope = 0
 " open definitions on same window, and custom mappings for definitions and
 " occurrences
-let g:pymode_rope_goto_definition_bind = ',d'
-let g:pymode_rope_goto_definition_cmd = 'e'
+" let g:pymode_rope_goto_definition_bind = ',d'
+" let g:pymode_rope_goto_definition_cmd = 'e'
 
-let g:python3_host_prog = "/usr/local/bin/python3"
-let g:python_host_prog = "/usr/local/bin/python"
+" let g:python3_host_prog = "/usr/local/bin/python3"
+" let g:python_host_prog = "/usr/local/bin/python"
 
 " ----------------------------------------------------------------------------
 " CtrlP - Ctrl P
@@ -642,8 +643,8 @@ let g:onedark_terminal_italics = 1
 set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
-colorscheme monokai_pro
-" colorscheme monokai
+" colorscheme monokai_pro
+colorscheme monokai
 
 " SourceKit-LSP configuration
 if executable('sourcekit-lsp')
