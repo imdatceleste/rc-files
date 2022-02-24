@@ -45,6 +45,7 @@ Plug 'scrooloose/syntastic'
 let g:polyglot_disabled = ['vue']
 Plug 'sheerun/vim-polyglot'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'Quramy/tsuquyomi'
 
 " Dart/Flutter
 Plug 'dart-lang/dart-vim-plugin'
@@ -347,14 +348,17 @@ let g:NERDSpaceDelims = 1
 " ----------------------------------------------------------------------------
 " check also when just opened the file
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " If you don't need write JSX, you can use jshint.
 " And eslint is slow, but not a hindrance
 " let g:syntastic_javascript_checkers = ['jshint']
 " let g:syntastic_javascript_checkers = []
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:tsuquyomi_disable_quickfix = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
+let g:syntastic_typescript_tsc_fname = ''
 
 " if you don't want to put icons on the sign column (it hides the vcs status icons of signify), set this to 0
 let g:syntastic_enable_signs = 1
@@ -374,7 +378,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " I'm setting Syntastic to "offline" mode so that I can run it manually
 " Otherwise, opening files takes too long with 'dart', 'swift', and 'rust'
-autocmd vimenter * SyntasticToggleMode
+" autocmd vimenter * SyntasticToggleMode
 autocmd vimenter * GitGutterLineHighlightsDisable
 " auto open or close NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
