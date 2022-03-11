@@ -1,0 +1,28 @@
+[user]
+	name = Imdat Solak
+	email = imdat@solak.de
+[core]
+	excludesfile = /Users/iso/.gitignore_global
+[merge]
+    tool = nfugitive
+[difftool]
+    tool = nvimdiff2
+    trustExitCode = true
+[difftool "nvimdiff2"]
+    cmd = nvim -d $LOCAL $REMOTE
+[mergetool "nvimdiff4"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	trustExitCode = true
+[mergetool "nfugitive"]
+    cmd = nvim -f -c "Gdiff!" "$MERGED"
+[commit]
+	template = /Users/iso/.stCommitMsg
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultBranch = main
+[credential "https://git.netfiles.de"]
+	username = imdat.solak@netfiles.de
