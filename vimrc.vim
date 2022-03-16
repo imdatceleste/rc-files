@@ -50,10 +50,12 @@ Plug 'Quramy/tsuquyomi'
 " Dart/Flutter
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
+
+" Vim Language Server Support
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 
-"" Vim LSP related
+" Vim LSP related
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 
@@ -69,10 +71,6 @@ Plug 'xavierd/clang_complete'
 
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
-
-"
-" Automatically sort python imports
-" Plug 'fisadev/vim-isort'
 
 " ----------------------------------------------------------------------------
 " GIT & Co.
@@ -165,6 +163,12 @@ Plug 'crusoexia/vim-monokai'
 
 " File Type Icons for NERDTree - supposed to be loaded as last one
 Plug 'ryanoasis/vim-devicons'
+
+" Prettier for vim
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 
 call plug#end()
 
@@ -347,7 +351,7 @@ let g:NERDSpaceDelims = 1
 " Syntastic Settings
 " ----------------------------------------------------------------------------
 " check also when just opened the file
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -367,8 +371,8 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-" If you want to open dart files faster, uncomment the following
-" let g:syntastic_dart_checkers = ['dartanalyzer']
+" If you want to open dart files faster, comment the following
+let g:syntastic_dart_checkers = ['dartanalyzer']
 
 " Swift mode
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
@@ -459,7 +463,7 @@ set cole=0
 " ----------------------------------------------------------------------------
 let g:gitgutter_highlight_lines = 1
 let g:gitgutter_highlight_linenrs = 1
-let g:gitgutter_preview_win_floating = 0
+let g:gitgutter_preview_win_floating = 1
 let g:gitgutter_use_location_list = 1
 let g:gitgutter_sign_allow_clobber = 1
 autocmd BufWritePost * GitGutter
@@ -641,6 +645,16 @@ let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
 let g:onedark_terminal_italics = 1
+
+" ----------------------------------------------------------------------------
+" dart-plugin settings
+" ----------------------------------------------------------------------------
+let g:dart_style_guide = 2
+let g:dartfmt_options = [' --line-length 120']
+let g:dart_format_on_save = 1
+" If you have problems with above lines, you can also use:
+" autocmd BufWritePre *.dart execute "DartFmt -l 120 --fix"
+
 " ============================================================================
 " Colorscheme Settings
 " ============================================================================
