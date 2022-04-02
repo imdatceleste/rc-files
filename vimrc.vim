@@ -121,6 +121,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
