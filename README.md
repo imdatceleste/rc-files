@@ -5,6 +5,7 @@ These are my standard .rc-files used for `zsh` and `neovim` / `vim`.
 I use `iTerm 2` on macOS.
 
 Font is `Iosevka Nerd Font Mono`.
+Alternative fonts: 'Monofur', 'Lekton', 'Monoid'
 
 For `zsh` you need to install [Oh My Zsh](https://ohmyz.sh)
 

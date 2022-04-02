@@ -23,6 +23,9 @@ Plug 'scrooloose/nerdtree'
 " Show git-status within NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" File Type Icons for NERDTree - supposed to be loaded as last one
+Plug 'ryanoasis/vim-devicons'
+
 " ----------------------------------------------------------------------------
 " Searching in Files, Grepping...
 " ----------------------------------------------------------------------------
@@ -182,9 +185,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'reewr/vim-monokai-phoenix'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'crusoexia/vim-monokai'
-
-" File Type Icons for NERDTree - supposed to be loaded as last one
-Plug 'ryanoasis/vim-devicons'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
 
 call plug#end()
 
@@ -678,7 +680,8 @@ set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
 " colorscheme monokai_pro
-colorscheme monokai
+" colorscheme monokai
+colorscheme molokai
 
 " SourceKit-LSP configuration
 if executable('sourcekit-lsp')
