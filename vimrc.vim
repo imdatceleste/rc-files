@@ -140,12 +140,26 @@ Plug 'prettier/vim-prettier', {
 " ----------------------------------------------------------------------------
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+" SnipMate
+" Plug 'garbas/vim-snipmate'
+let g:snips_author = 'Imdat Solak'
+
+" Or: UltiSnips 
+Plug 'SirVer/ultisnips'
 
 " Optional:
 Plug 'honza/vim-snippets'
 
-let g:snips_author = 'Imdat Solak'
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+" let g:UltiSnipsExpandTrigger="<c-u-c-n>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
