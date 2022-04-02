@@ -72,6 +72,8 @@ Plug 'udalov/kotlin-vim'
 Plug 'arzg/vim-swift'
 Plug 'xavierd/clang_complete'
 
+Plug 'valloric/youcompleteme'
+
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
 
@@ -153,7 +155,7 @@ Plug 'honza/vim-snippets'
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
-" let g:UltiSnipsExpandTrigger="<c-u-c-n>"
+let g:UltiSnipsExpandTrigger="<C-E>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
