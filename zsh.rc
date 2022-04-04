@@ -452,6 +452,7 @@ alias l='$(whence -p lsd) -lAFh $@'
 alias vi='nvim'
 export EDITOR="nvim"
 export PATH="/usr/local/bin:$PATH:$HOME/Development/flutter/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
 export GOPATH="$GOPATH:$HOME/go"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export RANGER_LOAD_DEFAULT_RC=FALSE

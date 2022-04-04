@@ -108,9 +108,6 @@ Plug 'junegunn/vim-peekaboo'
 " Bookmarks
 Plug 'mattesgroeger/vim-bookmarks'
 
-" TableMode - use with :TableModeToggle => https://vimawesome.com/plugin/table-mode
-Plug 'dhruvasagar/vim-table-mode'
-
 " Markbar		
 Plug 'yilin-yang/vim-markbar'		
 
@@ -118,7 +115,6 @@ Plug 'yilin-yang/vim-markbar'
 Plug 'editorconfig/editorconfig-vim'
 
 " Vi Markdown
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 " ----------------------------------------------------------------------------
@@ -376,6 +372,9 @@ let g:syntastic_dart_checkers = ['dartanalyzer']
 
 " Swift mode
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
+" python
+let g:syntastic_python_checkers = ['pylint']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
