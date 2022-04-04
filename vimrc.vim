@@ -23,6 +23,9 @@ Plug 'scrooloose/nerdtree'
 " Show git-status within NERDTree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" File Type Icons for NERDTree - supposed to be loaded as last one
+Plug 'ryanoasis/vim-devicons'
+
 " ----------------------------------------------------------------------------
 " Searching in Files, Grepping...
 " ----------------------------------------------------------------------------
@@ -68,6 +71,8 @@ Plug 'udalov/kotlin-vim'
 " Swift
 Plug 'arzg/vim-swift'
 Plug 'xavierd/clang_complete'
+
+Plug 'valloric/youcompleteme'
 
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
@@ -117,6 +122,42 @@ Plug 'editorconfig/editorconfig-vim'
 " Vi Markdown
 Plug 'plasticboy/vim-markdown'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" ----------------------------------------------------------------------------
+" PRETTIER - to auto-format files
+" ----------------------------------------------------------------------------
+" Prettier for vim
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+
+" ----------------------------------------------------------------------------
+" Snipmate
+" ----------------------------------------------------------------------------
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+" SnipMate
+" Plug 'garbas/vim-snipmate'
+let g:snips_author = 'Imdat Solak'
+
+" Or: UltiSnips 
+Plug 'SirVer/ultisnips'
+
+" Optional:
+Plug 'honza/vim-snippets'
+
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+let g:UltiSnipsExpandTrigger="<C-E>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
 " ----------------------------------------------------------------------------
@@ -156,15 +197,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'reewr/vim-monokai-phoenix'
 Plug 'phanviet/vim-monokai-pro'
 Plug 'crusoexia/vim-monokai'
-
-" File Type Icons for NERDTree - supposed to be loaded as last one
-Plug 'ryanoasis/vim-devicons'
-
-" Prettier for vim
-" post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
 
 call plug#end()
 
@@ -661,7 +695,8 @@ set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
 " colorscheme monokai_pro
-colorscheme monokai
+" colorscheme monokai
+colorscheme molokai
 
 " SourceKit-LSP configuration
 if executable('sourcekit-lsp')
