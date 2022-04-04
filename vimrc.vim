@@ -353,9 +353,9 @@ let g:NERDTreeWinSize=50
 " ----------------------------------------------------------------------------
 " Indentline
 " ----------------------------------------------------------------------------
-let g:indentLine_char = '┊'
+" let g:indentLine_char = '┊'
 
-" let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " let g:indentLine_char_list = ['¦', '┆', '│', '⎸',  '▏']
 let g:indentLine_enabled = 1
 
