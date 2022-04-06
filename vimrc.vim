@@ -68,6 +68,12 @@ Plug 'tfnico/vim-gradle'
 " Kotlin
 Plug 'udalov/kotlin-vim'
 
+" protobuf
+Plug 'yoheimuta/vim-protolint'
+
+" GoLang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " Swift
 Plug 'arzg/vim-swift'
 Plug 'xavierd/clang_complete'
@@ -409,6 +415,9 @@ let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 " python
 let g:syntastic_python_checkers = ['pylint']
+
+" protobuf
+let g:syntastic_proto_checkers = ['protolint']
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
