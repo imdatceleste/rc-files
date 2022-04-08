@@ -178,7 +178,7 @@ Plug 't9md/vim-choosewin'
 " ----------------------------------------------------------------------------
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+Plug 'enricobacis/vim-airline-clock'
 " ----------------------------------------------------------------------------
 " Nicer UI
 " ----------------------------------------------------------------------------
@@ -418,6 +418,7 @@ let g:syntastic_python_checkers = ['pylint']
 
 " protobuf
 let g:syntastic_proto_checkers = ['protolint']
+" let g:syntastic_proto_protolint_args = '-fix'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -697,15 +698,16 @@ let g:dart_format_on_save = 1
 " If you have problems with above lines, you can also use:
 " autocmd BufWritePre *.dart execute "DartFmt -l 120 --fix"
 
+" autocmd BufWritePre *.proto execute "protolint lint -fix"
 " ============================================================================
 " Colorscheme Settings
 " ============================================================================
 set termguicolors
 set background=dark
-" colorscheme monokai-phoenix
+colorscheme monokai-phoenix
 " colorscheme monokai_pro
 " colorscheme monokai
-colorscheme molokai
+" colorscheme molokai
 
 " SourceKit-LSP configuration
 if executable('sourcekit-lsp')
