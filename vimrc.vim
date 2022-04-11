@@ -218,9 +218,6 @@ filetype plugin indent on
 " TextEdit might fail if hidden is not set.
 set hidden
 
-" Some servers have issues with backup files, see #649.
-set nowritebackup
-
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -260,9 +257,6 @@ set autoread
 "
 " when dealing with unsaved files ask what to do
 set confirm
-"
-" no backup files
-set nobackup
 "
 " other settings 
 set langmenu=en_US.UTF-8
