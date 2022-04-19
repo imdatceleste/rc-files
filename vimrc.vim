@@ -414,12 +414,14 @@ let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_proto_checkers = ['protolint']
 " let g:syntastic_proto_protolint_args = '-fix'
 
+" C++
+let g:syntastic_cpp_checkers = ["gcc"]
+let g:syntastic_cpp_compiler_options = "-std=c++20 -Wall -Wextra -Wpedantic -I./hyperwave/include"
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-" I'm setting Syntastic to "offline" mode so that I can run it manually
-" Otherwise, opening files takes too long with 'dart', 'swift', and 'rust'
-" autocmd vimenter * SyntasticToggleMode
+
 autocmd vimenter * GitGutterLineHighlightsDisable
 " auto open or close NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
