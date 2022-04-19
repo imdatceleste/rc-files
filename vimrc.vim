@@ -236,10 +236,10 @@ set signcolumn=yes
 set expandtab
 set smarttab
 " ... at 4 spaces
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 " ... also when I do shift
-set shiftwidth=4
+set shiftwidth=2
 "
 " highlight cursor line and column
 set cursorline
@@ -334,6 +334,8 @@ set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:�
 " ============================================================================
 " PLUGIN Settings
 " ============================================================================
+" clang_completiong
+let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 " ----------------------------------------------------------------------------
 " NERDTree Setttings 
 " ----------------------------------------------------------------------------
@@ -346,7 +348,7 @@ let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xc
 let g:NERDTreeGitStatusUseNerdFonts = 0
 " let g:NERDTreeGitStatusGitBinPath="/usr/local/git/bin/git"
 let g:NERDTreeGitStatusPorcelainVersion=1
-let g:NERDTreeWinSize=50
+let g:NERDTreeWinSize=40
 
 " ----------------------------------------------------------------------------
 " Indentline
