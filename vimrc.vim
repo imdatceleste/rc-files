@@ -425,7 +425,11 @@ autocmd vimenter * GitGutterLineHighlightsDisable
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-let g:coc_node_path = '/usr/local/bin/node'
+if has("mac")
+    let g:coc_node_path = '/usr/local/bin/node'
+else
+    let g:coc_node_path = '/home/linuxbrew/.linuxbrew/bin/node'
+endif
 " ----------------------------------------------------------------------------
 " Python-Mode Settings
 " ----------------------------------------------------------------------------
