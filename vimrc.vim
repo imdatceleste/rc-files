@@ -78,8 +78,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'arzg/vim-swift'
 Plug 'xavierd/clang_complete'
 
-Plug 'valloric/youcompleteme'
-
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
 
