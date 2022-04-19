@@ -1,4 +1,4 @@
 #!/bin/bash
-brew install node npm yarn ctags universal-ctags pyvim silver-search ag lsd neovim ranger cowsay fortune cocoapods lazygit cmake python mono go nodejs zoxide
+brew reinstall node npm yarn universal-ctags pyvim the_silver_searcher ag lsd neovim ranger cowsay fortune cocoapods lazygit cmake python mono go nodejs zoxide
 brew tap yoheimuta/protolint
-brew install protolint
+brew reinstall protolint

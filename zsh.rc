@@ -451,13 +451,13 @@ alias l='$(whence -p lsd) -lAFh $@'
 # alias python='$(whence -p python3) $@'
 alias vi='nvim'
 export EDITOR="nvim"
-export PATH="/usr/local/bin:$PATH:$HOME/Development/flutter/bin"
-export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="$PATH:$HOME/Development/flutter/bin:$HOME/.pub-cache/bin"
 export GOPATH="/usr/local/bin"
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export SENTRY_URL=https://sm-sentry.g3o.io/
 eval "$(zoxide init zsh)"
 source ~/.profile
+source ~/.zprofile
 # source /Users/iso/.zplug/repos/robbyrussell/oh-my-zsh/oh-my-zsh.sh
 chuck_cow

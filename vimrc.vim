@@ -427,6 +427,7 @@ autocmd vimenter * GitGutterLineHighlightsDisable
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+let g:coc_node_path = '/usr/local/bin/node'
 " ----------------------------------------------------------------------------
 " Python-Mode Settings
 " ----------------------------------------------------------------------------
