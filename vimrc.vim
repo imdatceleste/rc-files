@@ -78,6 +78,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'arzg/vim-swift'
 Plug 'xavierd/clang_complete'
 
+" C++
+Plug 'rhysd/vim-clang-format'
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
 
@@ -155,9 +157,9 @@ Plug 'honza/vim-snippets'
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<C-E>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<C-CR>"
+let g:UltiSnipsJumpForwardTrigger="<C-E>"
+let g:UltiSnipsJumpBackwardTrigger="<C-BS>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
@@ -416,7 +418,7 @@ let g:syntastic_proto_checkers = ['protolint']
 
 " C++
 let g:syntastic_cpp_checkers = ["gcc"]
-let g:syntastic_cpp_compiler_options = "-std=c++20 -Wall -Wextra -Wpedantic -I./hyperwave/include"
+let g:syntastic_cpp_compiler_options = "-std=c++20 -Wall -Wextra -Wpedantic -Wno-vla-extension -Wno-unused-parameter -I./hyperwave/include -I./node_modules/nan -I/usr/local/include/node"
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -721,6 +723,9 @@ endif
 
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 autocmd FileType swift setlocal 
+autocmd vimenter * ClangFormatAutoDisable
+
+autocmd bufenter *.c,*.cc,*.cpp,*.m,*.h ClangFormatAutoEnable
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
