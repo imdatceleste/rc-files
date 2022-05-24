@@ -154,6 +154,11 @@ Plug 'SirVer/ultisnips'
 " Optional:
 Plug 'honza/vim-snippets'
 
+" -----------------------------------------------------------
+"  You Compelte Me
+"  ----------------------------------------------------------
+Plug 'ycm-core/YouCompleteMe'
+
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
@@ -348,7 +353,6 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.DS_Store$', 'DerivedData$', '\.xcodeproj$', '\.xcworkspace$']
 let g:NERDTreeGitStatusUseNerdFonts = 0
-" let g:NERDTreeGitStatusGitBinPath="/usr/local/git/bin/git"
 let g:NERDTreeGitStatusPorcelainVersion=1
 let g:NERDTreeWinSize=40
 
@@ -383,7 +387,7 @@ let g:NERDSpaceDelims = 1
 " Syntastic Settings
 " ----------------------------------------------------------------------------
 " check also when just opened the file
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -405,6 +409,9 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 " If you want to open dart files faster, comment the following
 let g:syntastic_dart_checkers = ['dartanalyzer']
+
+" Golang
+let g:syntastic_golang_checkers = ['gofmt']
 
 " Swift mode
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
@@ -696,10 +703,10 @@ let g:onedark_terminal_italics = 1
 " dart-plugin settings
 " ----------------------------------------------------------------------------
 let g:dart_style_guide = 2
-let g:dartfmt_options = [' --line-length 120']
+let g:dartfmt_options = [' --line-length 100']
 let g:dart_format_on_save = 1
 " If you have problems with above lines, you can also use:
-" autocmd BufWritePre *.dart execute "DartFmt -l 120 --fix"
+" autocmd BufWritePre *.dart execute "DartFmt -l 100 --fix"
 
 " autocmd BufWritePre *.proto execute "protolint lint -fix"
 " ============================================================================
