@@ -76,10 +76,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Swift
 Plug 'arzg/vim-swift'
-Plug 'xavierd/clang_complete'
+" Plug 'xavierd/clang_complete'
 
 " C++
-Plug 'rhysd/vim-clang-format'
+" Plug 'rhysd/vim-clang-format'
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
 
@@ -144,15 +144,6 @@ Plug 'prettier/vim-prettier', {
 " ----------------------------------------------------------------------------
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-" SnipMate
-" Plug 'garbas/vim-snipmate'
-let g:snips_author = 'Imdat Solak'
-
-" Or: UltiSnips 
-Plug 'SirVer/ultisnips'
-
-" Optional:
-Plug 'honza/vim-snippets'
 
 " -----------------------------------------------------------
 "  You Compelte Me
@@ -162,12 +153,6 @@ Plug 'ycm-core/YouCompleteMe'
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
 " - https://github.com/nvim-lua/completion-nvim
-let g:UltiSnipsExpandTrigger="<C-CR>"
-let g:UltiSnipsJumpForwardTrigger="<C-E>"
-let g:UltiSnipsJumpBackwardTrigger="<C-BS>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " ----------------------------------------------------------------------------
 " Window/Tab, etc. helpers
@@ -703,10 +688,10 @@ let g:onedark_terminal_italics = 1
 " dart-plugin settings
 " ----------------------------------------------------------------------------
 let g:dart_style_guide = 2
-let g:dartfmt_options = [' --line-length 100']
+let g:dartfmt_options = [' --line-length 80']
 let g:dart_format_on_save = 1
 " If you have problems with above lines, you can also use:
-" autocmd BufWritePre *.dart execute "DartFmt -l 100 --fix"
+" autocmd BufWritePre *.dart execute "DartFmt -l 80 --fix"
 
 " autocmd BufWritePre *.proto execute "protolint lint -fix"
 " ============================================================================
@@ -730,9 +715,10 @@ endif
 
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 autocmd FileType swift setlocal 
-autocmd vimenter * ClangFormatAutoDisable
+" autocmd vimenter * ClangFormatAutoDisable
 
-autocmd bufenter *.c,*.cc,*.cpp,*.m,*.h ClangFormatAutoEnable
+" autocmd bufenter *.c,*.cc,*.cpp,*.m,*.h ClangFormatAutoEnable
+autocmd bufenter *.xml SyntasticToggle
 
 autocmd bufenter *.json set conceallevel=0
 autocmd vimenter *.json set conceallevel=0
