@@ -731,4 +731,4 @@ autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
 let g:ycm_show_diagnostics_ui = 0
 
-# let g:syntastic_debug = 33
+" let g:syntastic_debug = 33
