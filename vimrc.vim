@@ -79,7 +79,7 @@ Plug 'arzg/vim-swift'
 " Plug 'xavierd/clang_complete'
 
 " C++
-" Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 " Use all the defaults (recommended):
 let g:lsc_auto_map = v:true
 
@@ -327,7 +327,7 @@ set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:�
 " PLUGIN Settings
 " ============================================================================
 " clang_completiong
-let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+" let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 " ----------------------------------------------------------------------------
 " NERDTree Setttings 
 " ----------------------------------------------------------------------------
@@ -372,7 +372,7 @@ let g:NERDSpaceDelims = 1
 " Syntastic Settings
 " ----------------------------------------------------------------------------
 " check also when just opened the file
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -729,3 +729,6 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd vimenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
+let g:ycm_show_diagnostics_ui = 0
+
+# let g:syntastic_debug = 33

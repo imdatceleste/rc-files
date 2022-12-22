@@ -460,3 +460,6 @@ eval "$(zoxide init zsh)"
 # source /Users/iso/.zplug/repos/robbyrussell/oh-my-zsh/oh-my-zsh.sh
 chuck_cow
 export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
+export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/node@18/lib"
+export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/node@18/include"
+alias gcc=gcc-12
