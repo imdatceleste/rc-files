@@ -11,6 +11,7 @@
 " ----------------------------------------------------------------------------
 " NOTE: I'm using Vim-Plug
 " ============================================================================
+set shortmess-=F
 call plug#begin('~/.vim/plugged')
 
 set nocompatible
@@ -52,7 +53,6 @@ Plug 'Quramy/tsuquyomi'
 
 " Dart/Flutter
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
 
 " Vim Language Server Support
 Plug 'natebosch/vim-lsc'
@@ -77,11 +77,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Swift
 Plug 'arzg/vim-swift'
 " Plug 'xavierd/clang_complete'
-
+Plug 'hrsh7th/nvim-compe'
 " C++
-" Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 " Use all the defaults (recommended):
-let g:lsc_auto_map = v:true
 
 " ----------------------------------------------------------------------------
 " GIT & Co.
@@ -102,7 +101,7 @@ Plug 'junegunn/gv.vim'
 Plug 'Townk/vim-autoclose'
 
 " COC - the best completion helper I could find 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tabularizer
 Plug 'godlygeek/tabular'
@@ -148,7 +147,7 @@ Plug 'tomtom/tlib_vim'
 " -----------------------------------------------------------
 "  You Compelte Me
 "  ----------------------------------------------------------
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
@@ -596,20 +595,15 @@ nmap <leader>e :Errors<CR>
 nmap <leader>n :lnext<CR>
 nmap <leader>p :lprevious<CR>
 
-" Plain F11
-map <F11> :CtrlPBuffer<CR>
 " Show/hide invisible Chars
-map <F12> :set list!<CR>
+map <F11> :set list!<CR>
+" Re-order imports in dart files
+map <F12> :DartOrganizeImports<CR>
 
 " Shift-F1
 map <F13> :NERDTreeFind<CR>
 nmap <leader>t :NERDTreeFind<CR>
 " Shift-F2
-map <F14> :RnvimrToggle<CR>
-" Shift-F11
-map <F23> :CtrlP<CR>
-" Shift-F12
-map <F24> :SyntasticCheck<CR>
 
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
@@ -690,20 +684,10 @@ let g:onedark_terminal_italics = 1
 let g:dart_style_guide = 2
 let g:dartfmt_options = [' --line-length 80']
 let g:dart_format_on_save = 1
-" If you have problems with above lines, you can also use:
-" autocmd BufWritePre *.dart execute "DartFmt -l 80 --fix"
-
-" autocmd BufWritePre *.proto execute "protolint lint -fix"
-" ============================================================================
-" Colorscheme Settings
-" ============================================================================
-set termguicolors
-set background=dark
-colorscheme monokai-phoenix
-" colorscheme monokai_pro
-" colorscheme monokai
-" colorscheme molokai
-
+let g:lsc_auto_map = v:true
+let g:lsc_dart_sdk_path = "/Users/iso/Development/flutter"
+let g:lsc_server_commands = {'dart': 'dart_language_server'}
+"
 " SourceKit-LSP configuration
 if executable('sourcekit-lsp')
     au User lsp_setup call lsp#register_server({
@@ -712,6 +696,14 @@ if executable('sourcekit-lsp')
         \ 'whitelist': ['swift'],
         \ })
 endif
+
+" If you have problems with above lines, you can also use:
+" autocmd BufWritePre *.dart execute "DartFmt -l 80 --fix"
+
+" autocmd BufWritePre *.proto execute "protolint lint -fix"
+" ============================================================================
+" Colorscheme Settings
+" ============================================================================
 
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 autocmd FileType swift setlocal 
@@ -729,3 +721,12 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd vimenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+set termguicolors
+set background=dark
+" colorscheme monokai-phoenix
+colorscheme monokai_pro
+" colorscheme monokai
+" colorscheme molokai
+" colorscheme gruvbox
+
