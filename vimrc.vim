@@ -326,7 +326,7 @@ set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:�
 " PLUGIN Settings
 " ============================================================================
 " clang_completiong
-let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+" let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 " ----------------------------------------------------------------------------
 " NERDTree Setttings 
 " ----------------------------------------------------------------------------
@@ -371,7 +371,7 @@ let g:NERDSpaceDelims = 1
 " Syntastic Settings
 " ----------------------------------------------------------------------------
 " check also when just opened the file
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -721,7 +721,6 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd vimenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
-
 set termguicolors
 set background=dark
 " colorscheme monokai-phoenix
@@ -730,3 +729,6 @@ colorscheme monokai_pro
 " colorscheme molokai
 " colorscheme gruvbox
 
+let g:ycm_show_diagnostics_ui = 0
+
+" let g:syntastic_debug = 33

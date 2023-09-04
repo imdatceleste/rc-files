@@ -459,5 +459,3 @@ export SENTRY_URL=https://sm-sentry.g3o.io/
 eval "$(zoxide init zsh)"
 # source /Users/iso/.zplug/repos/robbyrussell/oh-my-zsh/oh-my-zsh.sh
 chuck_cow
-export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH:/Users/iso/Library/Android/sdk/platform-tools"
-source "$HOME/.cargo/env"
