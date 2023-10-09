@@ -147,7 +147,7 @@ Plug 'tomtom/tlib_vim'
 " -----------------------------------------------------------
 "  You Compelte Me
 "  ----------------------------------------------------------
-" Plug 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe'
 
 " Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
 " - https://github.com/Valloric/YouCompleteMe
@@ -189,12 +189,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " ----------------------------------------------------------------------------
 " COLOR Schemes
 " ----------------------------------------------------------------------------
-Plug 'reewr/vim-monokai-phoenix'
-Plug 'phanviet/vim-monokai-pro'
-Plug 'crusoexia/vim-monokai'
 Plug 'morhetz/gruvbox'
-Plug 'tomasr/molokai'
-
+Plug 'xiyaowong/transparent.nvim'
 call plug#end()
 
 " ============================================================================
@@ -723,11 +719,7 @@ autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
 set termguicolors
 set background=dark
-" colorscheme monokai-phoenix
-colorscheme monokai_pro
-" colorscheme monokai
-" colorscheme molokai
-" colorscheme gruvbox
+colorscheme gruvbox
 
 let g:ycm_show_diagnostics_ui = 0
 
