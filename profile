@@ -11,3 +11,5 @@ eval "$(zoxide init zsh)"
 chuck_cow
 eval "$(atuin init zsh)"
 export PATH=/Users/ics/.local/bin:$PATH
+source ~/.github.rc
+. "$HOME/.cargo/env"
