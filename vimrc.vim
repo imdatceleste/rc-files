@@ -189,7 +189,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " ----------------------------------------------------------------------------
 " COLOR Schemes
 " ----------------------------------------------------------------------------
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/sonokai'
 Plug 'xiyaowong/transparent.nvim'
 call plug#end()
 
@@ -672,8 +672,6 @@ highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
 
-let g:onedark_terminal_italics = 1
-
 " ----------------------------------------------------------------------------
 " dart-plugin settings
 " ----------------------------------------------------------------------------
@@ -719,7 +717,11 @@ autocmd bufenter *.ts setlocal expandtab sw=2 ts=2 softtabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2 softtabstop=2
 set termguicolors
 set background=dark
-colorscheme gruvbox
+let g:sonokai_enable_italic=1
+let g:sonokai_style = 'andromeda'
+let g:sonokai_better_performance = 1
+colorscheme sonokai
+set colorcolumn=80
 
 let g:ycm_show_diagnostics_ui = 0
 

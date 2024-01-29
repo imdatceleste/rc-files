@@ -459,3 +459,4 @@ export SENTRY_URL=https://sm-sentry.g3o.io/
 eval "$(zoxide init zsh)"
 # source /Users/iso/.zplug/repos/robbyrussell/oh-my-zsh/oh-my-zsh.sh
 chuck_cow
+eval "$(atuin init zsh)"
