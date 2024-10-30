@@ -78,7 +78,9 @@ Plug 'arzg/vim-swift'
 Plug 'hrsh7th/nvim-compe'
 " C++
 Plug 'rhysd/vim-clang-format'
-" Use all the defaults (recommended):
+
+Plug 'StanAngeloff/php.vim'
+Plug 'stephpy/vim-php-cs-fixer'
 
 " ----------------------------------------------------------------------------
 " GIT & Co.
@@ -347,9 +349,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 " If you don't need write JSX, you can use jshint.
 " And eslint is slow, but not a hindrance
-let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['jshint']
 " let g:syntastic_javascript_checkers = []
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " You shouldn't use 'tsc' checker.
 let g:syntastic_typescript_tsc_fname = ''
