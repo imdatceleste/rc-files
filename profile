@@ -7,5 +7,5 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 export PATH=/Users/ics/.local/bin:$PATH
+export PATH=/Users/iso/.cargo/bin:$PATH
 source ~/.github.rc
-export PRIVATE_TOKEN=glpat-o1UVcKSMicFCGWzNwgKA
